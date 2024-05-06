@@ -28,6 +28,10 @@
 #define BUTTON1 BIT0
 #define BUTTON2 BIT2
 #define BUTTON3 BIT3
+
+
+
+
 void button_init() {
 
   P2DIR &= ~(BUTTON1 | BUTTON2 | BUTTON3);
@@ -85,23 +89,14 @@ void draw_submarine(){
 void main() {
 
   configureClocks();
-
   lcd_init();
-
   clearScreen(BG_COLOR);
-
   buzzer_init();
-
   button_init();
-
   draw_submarine();
-
-  // Initialize variables
-
+  
   int timer_count = 0;
-
   int total_time = 10000; // 10 seconds
-
   int function_index = 0;
   
   while (1) {
@@ -109,7 +104,7 @@ void main() {
       play_verse();
     }
     if (button2_down()) {
-     
+      
       timer_count = 0; // Reset timer count when button is pressed
 
       int elapsed_time = 0;
@@ -147,12 +142,12 @@ void main() {
 	  function_index = (function_index + 1) % 3;
 	  elapsed_time += 1000; 
 	
-        __delay_cycles(10000); 
+        __delay_cycles(40000); 
 	timer_count += 1;   
       }
 
     }
-    if(button3_down){
+    if(button3_down()){
       play_chorus();
     }
   }

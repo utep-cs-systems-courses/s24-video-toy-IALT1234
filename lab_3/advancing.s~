@@ -1,0 +1,24 @@
+	.arch msp430G2ET
+
+	.p2align 1,0
+
+	.text
+
+
+	.global advancing
+
+	.extern P1OUT
+
+advancing:
+
+	cmp #0, r12
+
+	jz off
+
+	bis #64, &P1OUT		;or
+
+	pop r0
+
+off:	and #~64, &P1OUT
+
+	pop r0
