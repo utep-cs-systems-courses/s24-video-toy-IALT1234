@@ -8,7 +8,7 @@ CC           = msp430-elf-gcc
 
 TARGET       = figures.elf
 
-OBJECTS      = figures.o buzzer.o advancing.o  # Add advancing.o to the list of objects
+OBJECTS      = figures.o buzzer.o advancing.o 
 
 # Rules
 
